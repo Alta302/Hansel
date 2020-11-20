@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5402FB0625452D8E00ABEB1E /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5402FB0525452D8E00ABEB1E /* ListTableViewController.swift */; };
 		542647D72542B4A800174112 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542647D62542B4A800174112 /* TableViewCell.swift */; };
+		54804CEB254DC61000592733 /* Hansel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54804CEA254DC61000592733 /* Hansel.swift */; };
+		54973CBB254FCC6A003464FC /* SecondTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54973CBA254FCC6A003464FC /* SecondTableViewCell.swift */; };
+		54ACA9FB2552B91C00A7EC3A /* SecondTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54ACA9FA2552B91C00A7EC3A /* SecondTableViewController.swift */; };
 		54FE5451254184D90092C6AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FE5450254184D90092C6AB /* AppDelegate.swift */; };
 		54FE5453254184D90092C6AB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FE5452254184D90092C6AB /* SceneDelegate.swift */; };
 		54FE5455254184D90092C6AB /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FE5454254184D90092C6AB /* EditViewController.swift */; };
@@ -19,8 +21,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5402FB0525452D8E00ABEB1E /* ListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
 		542647D62542B4A800174112 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		54804CEA254DC61000592733 /* Hansel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hansel.swift; sourceTree = "<group>"; };
+		54973CBA254FCC6A003464FC /* SecondTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTableViewCell.swift; sourceTree = "<group>"; };
+		54ACA9FA2552B91C00A7EC3A /* SecondTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTableViewController.swift; sourceTree = "<group>"; };
 		54FE544D254184D90092C6AB /* Hansel2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hansel2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54FE5450254184D90092C6AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		54FE5452254184D90092C6AB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -64,14 +68,16 @@
 			children = (
 				54FE5450254184D90092C6AB /* AppDelegate.swift */,
 				54FE5452254184D90092C6AB /* SceneDelegate.swift */,
-				54FE5454254184D90092C6AB /* EditViewController.swift */,
 				54FE5456254184D90092C6AB /* Main.storyboard */,
 				54FE5459254184DC0092C6AB /* Assets.xcassets */,
 				54FE545B254184DC0092C6AB /* LaunchScreen.storyboard */,
 				54FE545E254184DC0092C6AB /* Info.plist */,
-				54FE54642541855F0092C6AB /* MainTableViewController.swift */,
+				54804CEA254DC61000592733 /* Hansel.swift */,
 				542647D62542B4A800174112 /* TableViewCell.swift */,
-				5402FB0525452D8E00ABEB1E /* ListTableViewController.swift */,
+				54973CBA254FCC6A003464FC /* SecondTableViewCell.swift */,
+				54FE54642541855F0092C6AB /* MainTableViewController.swift */,
+				54FE5454254184D90092C6AB /* EditViewController.swift */,
+				54ACA9FA2552B91C00A7EC3A /* SecondTableViewController.swift */,
 			);
 			path = Hansel2;
 			sourceTree = "<group>";
@@ -150,9 +156,11 @@
 				542647D72542B4A800174112 /* TableViewCell.swift in Sources */,
 				54FE5455254184D90092C6AB /* EditViewController.swift in Sources */,
 				54FE5451254184D90092C6AB /* AppDelegate.swift in Sources */,
-				5402FB0625452D8E00ABEB1E /* ListTableViewController.swift in Sources */,
+				54973CBB254FCC6A003464FC /* SecondTableViewCell.swift in Sources */,
 				54FE5453254184D90092C6AB /* SceneDelegate.swift in Sources */,
+				54ACA9FB2552B91C00A7EC3A /* SecondTableViewController.swift in Sources */,
 				54FE54652541855F0092C6AB /* MainTableViewController.swift in Sources */,
+				54804CEB254DC61000592733 /* Hansel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

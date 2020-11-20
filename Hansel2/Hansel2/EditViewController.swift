@@ -8,48 +8,101 @@
 
 import UIKit
 
-var list = [TableViewCell]()
+var hansel = [Hansel]()
 
-class ViewController: UIViewController {
+class EditViewController: UIViewController {
     @IBOutlet weak var yearTF: UITextField!
     @IBOutlet weak var monthTF: UITextField!
     @IBOutlet weak var dayTF: UITextField!
+    
     @IBOutlet weak var startHourTF: UITextField!
     @IBOutlet weak var startMinuteTF: UITextField!
     @IBOutlet weak var finishHourTF: UITextField!
     @IBOutlet weak var finishMinuteTF: UITextField!
-    @IBOutlet weak var addressTF: UITextField!
-    @IBOutlet weak var memoTV: UITextView!
-    @IBOutlet weak var searchButton: UIButton!
-    @IBOutlet weak var addButton: UIButton!
     
-    // cansel 버튼을 눌렀을 때 실행되는 함수
-    @IBAction func canselButtonAction(_ sender: Any) {
+    @IBOutlet weak var addressTF: UITextField!
+    @IBOutlet weak var memoTextView: UITextView!
+    
+    @IBOutlet weak var addButton: UIButton!
+
+    var year : String = ""
+    var month : String = ""
+    var day : String = ""
+
+    var sh : String = ""
+    var sm : String = ""
+    
+    var fh : String = ""
+    var fm : String = ""
+
+    var address : String = ""
+    var memo : String = ""
+    
+    @IBAction func allRouteButtonAction(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
         
     }
     
-    override func viewDidLoad() {
-        setUnderLine(yearTF)
-        setUnderLine(monthTF)
-        setUnderLine(dayTF)
-        setUnderLine(startHourTF)
-        setUnderLine(startMinuteTF)
-        setUnderLine(finishHourTF)
-        setUnderLine(finishMinuteTF)
-        setUnderLine(addressTF)
-
-        memoTV.layer.borderWidth = 2.0
-        memoTV.layer.borderColor = UIColor.black.cgColor
-        memoTV.layer.cornerRadius = 10
+    @IBAction func addButtonAction(_ sender: Any) {
+        year = yearTF.text!
+        month = monthTF.text!
+        day = dayTF.text!
         
-        setLine(searchButton)
+        sh = startHourTF.text!
+        sm = startMinuteTF.text!
+        
+        fh = finishHourTF.text!
+        fm = finishMinuteTF.text!
+        
+        address = addressTF.text!
+        memo = memoTextView.text!
+        
+        let item : Hansel = Hansel(year : year, month : month, day: day, sh : sh, sm : sm, fh : fh, fm : fm, address : address, memo : memo)
+        
+        useUserDefaults()
+        
+        // 모르겠다 때려쳐
+        
+        let alert = UIAlertController(title: "경로를 추가하시겠습니까?", message: nil, preferredStyle: UIAlertController.Style.alert)
+        
+        let cancelAction = UIAlertAction(title: "취소", style: .default, handler: nil)
+        
+        let addAction = UIAlertAction(title: "추가", style: .default) {
+            (action) in hansel.append(item)
+            self.navigationController?.popViewController(animated : true)
+            
+        }
+        
+        alert.addAction(cancelAction)
+        alert.addAction(addAction)
+        
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        setTFLine(yearTF)
+        setTFLine(monthTF)
+        setTFLine(dayTF)
+        setTFLine(startHourTF)
+        setTFLine(startMinuteTF)
+        setTFLine(finishHourTF)
+        setTFLine(finishMinuteTF)
+        setTFLine(addressTF)
+        
+        self.navigationController?.navigationBar.topItem?.title = "All Routes"
+        
+        memoTextView.layer.borderWidth = 2.0
+        memoTextView.layer.borderColor = UIColor.black.cgColor
+        memoTextView.layer.cornerRadius = 10
+        
         setLine(addButton)
         
     }
     
-    
-    func setUnderLine (_ nameOfTextField: UITextField) {
+    func setTFLine (_ nameOfTextField: UITextField) {
         let border = CALayer()
         let width = CGFloat(2.0)
         border.borderColor = UIColor.darkGray.cgColor
@@ -68,22 +121,19 @@ class ViewController: UIViewController {
         
     }
     
-    @IBAction func addListBtnAction(_ sender: Any) {
-        let year = yearTF.text!
-        let month = monthTF.text!
-        let day = dayTF.text!
-        let sh = startHourTF.text!
-        let sm = startMinuteTF.text!
-        let fh = finishHourTF.text!
-        let fm = finishMinuteTF.text!
-        let address = addressTF.text!
-        let memo = memoTV.text ?? ""
+    func useUserDefaults() {
+        UserDefaults.standard.set(year, forKey:"year")
+        UserDefaults.standard.set(month, forKey: "month")
+        UserDefaults.standard.set(day, forKey: "day")
         
-        let item: TableViewCell = TableViewCell(year: year, month: month, day: day, sh: sh, sm: sm, fh: fh, fm: fm, address: address, memo: memo)
+        UserDefaults.standard.set(sh, forKey: "sh")
+        UserDefaults.standard.set(sm, forKey: "sm")
         
-        list.append(item)
+        UserDefaults.standard.set(fh, forKey: "fh")
+        UserDefaults.standard.set(fm, forKey: "fm")
         
-        self.navigationController?.popViewController(animated: true)
+        UserDefaults.standard.set(address, forKey: "address")
+        UserDefaults.standard.set(memo, forKey: "memo")
         
     }
 

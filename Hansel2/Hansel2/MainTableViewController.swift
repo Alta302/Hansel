@@ -8,46 +8,59 @@
 
 import UIKit
 
-class TableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    @IBOutlet weak var hanselTableView: UITableView!
-    
-    var cellCount: Int = 1
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        hanselTableView.delegate = self
-        hanselTableView.dataSource = self
-        
-    }
+class MainTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    @IBOutlet weak var HanselTableView: UITableView!
+    @IBOutlet weak var BackgroundView: UIView!
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cellCount
-        
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-        
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 95
-        
-    }
-    
-    // 뷰가 다시 나올 때 실행되는 함수
-    override func viewDidAppear(_ animated: Bool) {
-        hanselTableView.reloadData() // 테이블 목록을 재구성하는 코드
+        return hansel.count
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: TableViewCell = tableView.dequeueReusableCell(withIdentifier: "mainCell", for: indexPath) as! TableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "mainCell") as! TableViewCell
         
-        cell.dateLabel.text = "여기서 날짜 나옴"
+        cell.dateLabel.text = date
+        cell.countLabel.text = String(hansel.count)
         
         return cell
+        
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        HanselTableView.dataSource = self
+        HanselTableView.delegate = self
+        HanselTableView.rowHeight = 95
+        
+        let border = CALayer()
+        border.frame = CGRect(x: 0, y: BackgroundView.frame.size.height-1, width: BackgroundView.frame.width, height: 1)
+        border.backgroundColor = UIColor.black.cgColor
+        BackgroundView.layer.addSublayer(border)
+        
+        useUserDefaults()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        HanselTableView.reloadData()
+        
+    }
+    
+    func useUserDefaults() {
+        UserDefaults.standard.object(forKey: "year")
+        UserDefaults.standard.object(forKey: "month")
+        UserDefaults.standard.object(forKey: "day")
+        
+        UserDefaults.standard.object(forKey: "sh")
+        UserDefaults.standard.object(forKey: "sm")
+        
+        UserDefaults.standard.object(forKey: "fh")
+        UserDefaults.standard.object(forKey: "fm")
+        
+        UserDefaults.standard.object(forKey: "address")
+        UserDefaults.standard.object(forKey: "memo")
         
     }
 
